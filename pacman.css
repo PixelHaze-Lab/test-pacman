@@ -3,11 +3,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 }
 
@@ -16,22 +16,24 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 100vw;
+    width: 100%;
     max-width: 100vw;
     box-sizing: border-box;
+    height: 100%;
+    justify-content: center; /* 追加: 縦中央揃え */
 }
 
 #gameWindow {
     position: relative;
-    width: 100vw;
-    max-width: 600px;
-    aspect-ratio: 3 / 2;
+    width: 600px; /* 固定幅: JSの想定に合わせる */
+    height: 400px; /* 固定高: aspect-ratio 3/2 */
     background-color: #FFFFFF;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     margin: 0 auto;
     touch-action: none;
+    transform-origin: center; /* 追加: スケールの基準点 */
 }
 
 #output {
@@ -104,6 +106,21 @@ body {
     to {
         transform: scale(1.0);
         opacity: 1;
+    }
+}
+
+/* 追加: スケール調整のためのメディアクエリ */
+@media (max-width: 600px) or (orientation: portrait) {
+    #gameWindow {
+        transform: scale(calc(100vw / 600)); /* 幅に合わせてスケール */
+        max-height: calc(100dvh - 80px); /* 高さ制限: outputやマージン分を考慮 */
+    }
+}
+
+/* 追加: 縦画面で高さが足りない場合の調整 */
+@media (max-height: 400px) {
+    #gameWindow {
+        transform: scale(calc(100dvh / 400 - 0.2)); /* 高さに合わせてスケール、余白分調整 */
     }
 }
 
