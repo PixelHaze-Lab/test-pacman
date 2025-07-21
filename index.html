@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 		<title>Pacman</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="pacman.css">
@@ -12,13 +12,15 @@
 </head>
     <body onLoad="loadComplete()">
         <div id="gameContainer">
-            <div id="gameWindow">
-                <img id="pacman" src="images/pacman.gif">
-                <img id="redGhost" src="images/ghost_red.png">
-                <img id="blueGhost" src="images/ghost_blue.png">
-                <img id="pinkGhost" src="images/ghost_pink.png">
-                <img id="greenGhost" src="images/ghost_green.png">
-				<audio id="chompSound" src="sounds/chomp.wav"></audio>
+            <div id="gameWindowContainer">
+                <div id="gameWindow">
+                    <img id="pacman" src="images/pacman.gif">
+                    <img id="redGhost" src="images/ghost_red.png">
+                    <img id="blueGhost" src="images/ghost_blue.png">
+                    <img id="pinkGhost" src="images/ghost_pink.png">
+                    <img id="greenGhost" src="images/ghost_green.png">
+					<audio id="chompSound" src="sounds/chomp.wav"></audio>
+                </div>
             </div>
             <div id="output"></div> </div>
     </body>
